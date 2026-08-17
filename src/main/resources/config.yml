@@ -1,0 +1,77 @@
+# =========================================================
+#                TabPersonalizado - Configuracion
+# =========================================================
+# Controla lo que se ve al presionar TAB:
+#   - Encabezado (fijo): nombre del server, rangos, tienda, discord.
+#   - Pie de pagina (en vivo): coordenadas y bioma del jugador.
+#
+# Puedes usar codigos de color con "&" y, como tienes
+# PlaceholderAPI instalado, tambien cualquier placeholder
+# (ej: %player_name%, %vault_eco_balance%) en cualquier texto
+# de este archivo.
+# =========================================================
+
+servidor:
+  nombre: "&6&l✦ MiServidorMC ✦"
+  tienda: "&etienda.miservidor.com"
+  discord: "&9discord.gg/miservidor"
+
+# =========================================================
+# Lineas del encabezado (header) y el orden en que aparecen.
+# Variables disponibles: {nombre} {rangos} {tienda} {discord}
+# Agrega, quita o reordena lineas libremente.
+# =========================================================
+header-formato:
+  - "{nombre}"
+  - "&fRangos: {rangos}"
+  - "&fTienda: {tienda}"
+  - "&fDiscord: {discord}"
+
+# =========================================================
+# Rangos que se muestran en el header, de mayor a menor.
+#
+#   tipo: rangosmc      -> toma el color/prefijo directo de tu
+#                          plugin RangosMC. "nombre" debe coincidir
+#                          EXACTO con el nombre del rango alla.
+#                          Si cambias el prefijo en RangosMC, aqui
+#                          se actualiza solo.
+#
+#   tipo: personalizado -> un rango manual, independiente de
+#                          RangosMC (ej: un VIP de la tienda).
+#                          Necesita su propio "prefix".
+#
+# Puedes insertar rangos personalizados en cualquier posicion,
+# por ejemplo un VIP entre "Mod" y "Constructor".
+# =========================================================
+tab-rangos:
+  - tipo: rangosmc
+    nombre: Host
+  - tipo: rangosmc
+    nombre: Admin
+  - tipo: rangosmc
+    nombre: Mod
+  - tipo: rangosmc
+    nombre: Constructor
+  - tipo: rangosmc
+    nombre: Ayudante
+  - tipo: rangosmc
+    nombre: Usuario
+
+# Ejemplo de como agregarias un VIP manual (descomenta y ajusta):
+#  - tipo: personalizado
+#    nombre: VIP
+#    prefix: "&6&l[VIP]"
+
+# =========================================================
+# Nombre que se muestra por dimension en el footer.
+# =========================================================
+mundos:
+  overworld: "&aOverworld"
+  nether: "&cNether"
+  end: "&5End"
+
+# Formato del footer. Variables: {mundo} {x} {y} {z} {bioma}
+footer-formato: "&7{mundo} &8| &fX: &7{x} &fY: &7{y} &fZ: &7{z} &8| &fBioma: &7{bioma}"
+
+# Cada cuantos ticks se actualiza el footer (20 ticks = 1 segundo).
+actualizacion-footer-ticks: 20

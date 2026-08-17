@@ -1,0 +1,19 @@
+name: TabPersonalizado
+version: '1.0.0'
+main: com.miplugin.tabpersonalizado.TabPersonalizado
+api-version: '1.21'
+author: DARKMORTOL
+description: Personaliza el TAB del servidor con nombre, rangos, tienda, discord y coordenadas/bioma en vivo.
+
+softdepend: [RangosMC, PlaceholderAPI]
+
+commands:
+  tab:
+    description: Comando principal de TabPersonalizado
+    usage: /tab reload
+    permission: tabpersonalizado.admin
+
+permissions:
+  tabpersonalizado.admin:
+    description: Permite recargar la configuracion de TabPersonalizado
+    default: op
