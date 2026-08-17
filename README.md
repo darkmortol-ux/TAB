@@ -73,10 +73,3 @@ Ver el `config.yml` incluido en el plugin para la lista completa de opciones com
 - [RangosMC](https://github.com/darkmortol-ux/RangosMC) (softdepend)
 - PlaceholderAPI (opcional, softdepend)
 
-## Compilación
-
-```bash
-mvn clean package
-```
-
-El `.jar` queda en `target/`. Este repositorio también incluye un workflow de GitHub Actions que compila y publica automáticamente el `.jar` en el release `latest` con cada push a `main`.
