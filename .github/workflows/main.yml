@@ -1,0 +1,46 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Compilar con Maven
+        run: mvn -B package --file pom.xml
+
+      - name: Subir artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: TabPersonalizado
+          path: target/*.jar
+
+      - name: Eliminar release anterior "latest"
+        if: github.event_name == 'push'
+        run: gh release delete latest --yes || true
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Crear Release y subir el jar
+        if: github.event_name == 'push'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: TabPersonalizado (ultima version)
+          files: target/*.jar
+          generate_release_notes: false
